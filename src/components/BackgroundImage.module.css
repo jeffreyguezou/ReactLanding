@@ -1,0 +1,15 @@
+.background {
+    background-image: url("../Assets/backgroundimage.jpeg");
+    height: 92vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1024px) 
+{   .background{ 
+    background-image: none;
+    height: fit-content;
+    padding-top: 2%;
+ } 
+}

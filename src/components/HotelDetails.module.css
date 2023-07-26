@@ -1,0 +1,29 @@
+.hotelSection {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.detailsSection {
+    width: 100%;
+}
+
+.hotelDescription {
+    width: 40%;
+    flex-direction: column;
+    padding-bottom: 2em;
+
+}
+@media screen and (max-width: 1024px) {   .hotelDescription{ width:75% } }
+.imageSection{
+    font-size: 24px;
+}
+.hotelName {
+    color: goldenrod;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center
+}

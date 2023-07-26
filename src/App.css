@@ -1,0 +1,12 @@
+.bookBtn{
+  font-size: 18px;
+  background-color: aliceblue;
+  color: gold;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+.disabledBtn{
+  background-color: lightgray;
+  cursor: not-allowed;
+}

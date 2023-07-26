@@ -1,0 +1,12 @@
+.card{
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 2em;
+    background-color: mintcream;
+    margin: 2em 0;
+}
+@media screen and (max-width: 992px) {
+    .card {
+        padding: 0;
+    }
+}

@@ -1,0 +1,21 @@
+.bookBtn {
+    background-color: white;
+    color: goldenrod;
+    height: 3em;
+    width: 8em;
+    border-radius: 1em;
+    font-size: 16px;
+    cursor: pointer;
+    
+}
+
+.btnSection {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2em;
+}
+.bookBtn :hover{
+    background-color: rgba(25, 25, 25, 0.7);
+}
