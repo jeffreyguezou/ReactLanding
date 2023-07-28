@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/ReactLanding/static/css/main.58fc0e2e.css",
+    "main.js": "/ReactLanding/static/js/main.348d11c7.js",
+    "static/js/787.6606bfd5.chunk.js": "/ReactLanding/static/js/787.6606bfd5.chunk.js",
+    "static/media/backgroundimage.jpeg": "/ReactLanding/static/media/backgroundimage.a080a6a0d6caeddbc78a.jpeg",
+    "static/media/pexels-amar-saleem-70441 (1).jpg": "/ReactLanding/static/media/pexels-amar-saleem-70441 (1).b59a71750243b7ab91aa.jpg",
+    "static/media/pexels-martin-péchy-2844474 (1).jpg": "/ReactLanding/static/media/pexels-martin-péchy-2844474 (1).fb7fc9ae71fc7cfe26f6.jpg",
+    "static/media/pexels-suhel-vba-3659683 (1).jpg": "/ReactLanding/static/media/pexels-suhel-vba-3659683 (1).9dff688792de40fd1c97.jpg",
+    "index.html": "/ReactLanding/index.html",
+    "main.58fc0e2e.css.map": "/ReactLanding/static/css/main.58fc0e2e.css.map",
+    "main.348d11c7.js.map": "/ReactLanding/static/js/main.348d11c7.js.map",
+    "787.6606bfd5.chunk.js.map": "/ReactLanding/static/js/787.6606bfd5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.58fc0e2e.css",
+    "static/js/main.348d11c7.js"
+  ]
+}
