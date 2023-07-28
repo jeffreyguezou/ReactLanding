@@ -10,8 +10,8 @@ function Dropdown(props) {
 
     return (
         <div className={classes.dropdown}>
-                        <select className={classes.selectField} onChange={hotelChangeHandler} value={props.selectedHotel} id="bookedHotel" name="hotelName">
-                            <option value='notSelected'>--Select Hotel--</option>
+                        <select value={props.initialValue} className={classes.selectField} onChange={hotelChangeHandler} id="bookedHotel" name="hotelName">
+                            <option value='notSelected'>{props.initialValue}</option>
                 {fetchedData.map((hotel) => {
                     return <option key={hotel.name} value={hotel.name}> {hotel.name}</option>
                 })}

@@ -1,13 +1,14 @@
 import classes from './BookRooms.module.css'
 import Dropdown from './Dropdown'
 import { useEffect, useState } from 'react'
-
+import ConfirmBooking from './ConfirmBooking'
 function BookRooms() {
     const [checkinDate, setcheckinDate] = useState('')
     const [checkoutDate, setcheckoutDate] = useState('')
     const [numOfRooms, setnumOfRooms] = useState('1')
-    const [hotelSelected, sethotelselected] = useState('');
+    const [hotelSelected, sethotelselected] = useState('--select--');
     const [dataValidity, setDataValidity] = useState(false)
+    const [showModal, setShowModal] =  useState(false)
 
     let d1, d2
     const checkinHandler = (event) => {
@@ -38,15 +39,15 @@ function BookRooms() {
         }
         else return true
     }
-   /*  const isPast = (date) => {
-        const current = new Date();
-        console.log(current)
-        let inputDate = new Date(date)
-        console.log(inputDate)
-        if (current > inputDate) {return true}
-        else return false
-    } */
-    const isHotelInputValid = !isEmpty(hotelSelected)
+    /*  const isPast = (date) => {
+         const current = new Date();
+         console.log(current)
+         let inputDate = new Date(date)
+         console.log(inputDate)
+         if (current > inputDate) {return true}
+         else return false
+     } */
+    const isHotelInputValid = (hotelSelected!=='--select--')
     const isCheckinInputValid = !isEmpty(checkinDate)
     //const isCheckinPast = isPast(checkinDate)
     const isCheckOutInputValid = !isEmpty(checkoutDate)
@@ -65,51 +66,57 @@ function BookRooms() {
             if (!isHotelInputValid) alert('Select a hotel')
             else if (!isCheckinInputValid) alert('Check-in date cannot be empty')
             else if (!isCheckOutInputValid) alert('Check-out date cannot be empty')
-            //else if (isCheckinPast) alert('Check-in date cannot be a past date')
-            //else if (isCheckOutPast) alert('Check-out date cannot be a past date')
             else if (!areDatesValid) alert('Check-in date cannot be earlier than check-out date')
             return
         }
         else {
-            const response = await fetch('https://landingpage-f89f0-default-rtdb.europe-west1.firebasedatabase.app/Enquiries.json', {
-                method: 'POST',
-                body: JSON.stringify(bookingEnquiry)
-            })
             console.log(bookingEnquiry)
-            const data = await response.json();
-            console.log(data)
+            setShowModal(true)
         }
     }
+    const modalCloseHandler = ()=>{
+        setShowModal(false)
+        setcheckinDate('')
+        setcheckoutDate('')
+        sethotelselected('--select--')
+        setnumOfRooms('1')
+        setDataValidity(false)
+
+    }
     return (
-        <div className={classes.bookingSection}>
-            <label className={classes.bookingLabels} htmlFor='fromDate'>Check-in</label>
+        <>
+            {showModal && <ConfirmBooking onModalClose={modalCloseHandler} booking={bookingEnquiry} />}
+            
+                <div className={classes.bookingSection}>
+                    <label className={classes.bookingLabels} htmlFor='fromDate'>Check-in</label>
 
-            <input
-                className={classes.inputFields}
-                type='date'
-                value={checkinDate}
-                onChange={checkinHandler}
-                min={new Date().toISOString().split('T')[0]}>
+                    <input
+                        className={classes.inputFields}
+                        type='date'
+                        value={checkinDate}
+                        onChange={checkinHandler}
+                        min={new Date().toISOString().split('T')[0]}>
 
-            </input>
-            <label className={classes.bookingLabels} htmlFor='toDate'>Check-out</label>
-            <input className={classes.inputFields}
-                type='date'
-                value={checkoutDate}
-                onChange={checkoutHandler}
-                min={new Date().toISOString().split('T')[0]}>
-                
-            </input>
+                    </input>
+                    <label className={classes.bookingLabels} htmlFor='toDate'>Check-out</label>
+                    <input className={classes.inputFields}
+                        type='date'
+                        value={checkoutDate}
+                        onChange={checkoutHandler}
+                        min={new Date().toISOString().split('T')[0]}>
 
-            <label className={classes.bookingLabels} htmlFor='rooms'>Rooms</label>
-            <input onChange={daysChangeHandler} className={classes.inputFields} type='number' min='1' step='1' value={numOfRooms}></input>
+                    </input>
 
-            <label className={classes.bookingLabels} htmlFor='bookedHotel'>Hotel</label>
-            <Dropdown selectedHotelName={hotelSelectHandler} />
-            <div className={classes.btnSection}>
-                <button className={classes.bookBtn} onClick={bookHandler}>Book Now</button>
-            </div>
-        </div>
+                    <label className={classes.bookingLabels} htmlFor='rooms'>Rooms</label>
+                    <input onChange={daysChangeHandler} className={classes.inputFields} type='number' min='1' step='1' value={numOfRooms}></input>
+
+                    <label className={classes.bookingLabels} htmlFor='bookedHotel'>Hotel</label>
+                    <Dropdown initialValue={hotelSelected} selectedHotelName={hotelSelectHandler} />
+                    <div className={classes.btnSection}>
+                        <button className={classes.bookBtn} onClick={bookHandler}>Book Now</button>
+                    </div>
+                </div>
+        </>
 
     )
 }

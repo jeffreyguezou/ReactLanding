@@ -1,8 +1,12 @@
 .eventImage{
-    
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 1%;
+}
+.sliderimg{
+    width:100%;
+    height: 500px;
+    object-fit: cover;
 }
