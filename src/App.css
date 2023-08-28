@@ -3,7 +3,7 @@
   color: #c17625;
   height: 3em;
   width: 8em;
-  border-radius: 1em;
+  border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
 }
@@ -12,7 +12,7 @@
   color: white;
   height: 3em;
   width: 8em;
-  border-radius: 1em;
+  border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
 }
