@@ -1,12 +1,22 @@
-.bookBtn{
-  font-size: 18px;
-  background-color: aliceblue;
-  color: gold;
-  border-radius: 5px;
-  padding: 10px;
+.bookBtn {
+  background-color: white;
+  color: #c17625;
+  height: 3em;
+  width: 8em;
+  border-radius: 1em;
+  font-size: 16px;
   cursor: pointer;
 }
-.disabledBtn{
+.bookBtnHovered {
+  background-color: black;
+  color: white;
+  height: 3em;
+  width: 8em;
+  border-radius: 1em;
+  font-size: 16px;
+  cursor: pointer;
+}
+.disabledBtn {
   background-color: lightgray;
   cursor: not-allowed;
 }
